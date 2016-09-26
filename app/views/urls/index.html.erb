@@ -2,7 +2,7 @@
 
 <% @urls.each do |url| %>
   <p><%= url.original_url%></p>
-  <p><%= "Short Url is : #{request.protocol}#{request.host}:#{request.port}/#{url.short_url}" %></p>
+  <p><%= "Short Url is : #{request.base_url}/#{url.short_url}" %></p>
 
 <% end %>
 
