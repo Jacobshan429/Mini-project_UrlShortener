@@ -1,16 +1,32 @@
-<h1>Index</h1>
+<div class="container">
+  <div class="row">
+    <h1 style="text-align: center">Jacob's ShortURL Service</h1>
+    <div class="col-xs-4"></div>
+    <div class="form-group col-xs-4">
+      <%= form_for @url do |f| %>
+        <%= f.label :original_url, "Original Url:" %>
+        <%= f.url_field :original_url,:class => "form-control" %>
+        <br>
+        <%= f.submit "Create ShortURL", :class => "btn btn-info" %>
+      <% end %>
+    </div>
 
-<% @urls.each do |url| %>
-  <p><%= url.original_url%></p>
-  <p><%= "Short Url is : #{request.base_url}/#{url.short_url}" %></p>
-  <%= link_to "Delete", url_path(url), :method => :delete  %>
+    <table class="table table-hover">
+      <tr>
+        <th>Your Url</th>
+        <th>Short Url 'u r welcome'</th>
+        <th></th>
+      </tr>
 
-<% end %>
+      <% @urls.each do |url| %>
+      <tr>
+        <td><%= url.original_url%></td>
+        <td><%= "#{request.base_url}/#{url.short_url}" %></td>
+        <td><%= link_to "Delete", url_path(url), :method => :delete  %></td>
+      </tr>
+      <% end %>
 
-<%= form_for @url do |f| %>
-  <%= f.label :original_url, "Original Url:" %>
-  <%= f.url_field :original_url %>
+    </table>
 
-
-  <%= f.submit %>
-<% end %>
+  </div>
+</div>
