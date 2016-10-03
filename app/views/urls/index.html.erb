@@ -3,6 +3,7 @@
 <% @urls.each do |url| %>
   <p><%= url.original_url%></p>
   <p><%= "Short Url is : #{request.base_url}/#{url.short_url}" %></p>
+  <%= link_to "Delete", url_path(url), :method => :delete  %>
 
 <% end %>
 
