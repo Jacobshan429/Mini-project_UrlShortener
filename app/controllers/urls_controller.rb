@@ -11,8 +11,6 @@ class UrlsController < ApplicationController
 
   def create
     @url = Url.new(params_url)
-    require 'securerandom'
-    @url.short_url = SecureRandom.hex(3)
     @url.save
     redirect_to urls_path
 
